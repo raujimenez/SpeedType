@@ -3,28 +3,31 @@ import React, { useState, useEffect } from "react";
 import WordDisplay from "./components/WordDisplay.jsx";
 import TypeSpace from "./components/TypeSpace.jsx";
 
-import getWord from "./helpers/getWord.js";
+import getWords from "./helpers/getWords.js";
 
 import "./App.css";
 
 function App() {
-  const [word, setWord] = useState("");
+  const [wordQueue, setWordQueue] = useState([]);
   const [userInput, setUserInput] = useState("");
 
   useEffect(() => {
     async function initalizeWord() {
-      setWord(await getWord());
+        setWordQueue(await getWords(50));
     }
     initalizeWord();
   }, []);
 
   return (
     <div className="App">
-      <WordDisplay word={word} userInput={userInput} />
+      <WordDisplay 
+        word={(wordQueue.length > 0) ?  wordQueue[0] : ''} 
+        userInput={userInput} 
+      />
       <TypeSpace
         setUserInput={setUserInput}
-        targetWord={word}
-        setWord={setWord}
+        targetWords={wordQueue}
+        setWordQueue={setWordQueue}
       />
     </div>
   );

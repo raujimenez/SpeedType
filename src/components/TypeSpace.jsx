@@ -1,20 +1,29 @@
 import React, { useState } from "react";
-import getWord from "../helpers/getWord.js";
+import getWords from "../helpers/getWords.js";
 
 export default function TypeSpace(props) {
   const [userInput, setUserInput] = useState("");
-
-  function handleInputChange(val) {
-    if (val.localeCompare(props.targetWord)) {
+  const wordQueue = props.targetWords;
+  async function handleInputChange(val) {
+    const match = val.localeCompare(wordQueue[0]) === 0;
+    if (!match) {
       setUserInput(val);
       props.setUserInput(val);
     } else {
+      async function setWord() {
+        if (wordQueue.length === 25) {
+          props.setWordQueue(
+            wordQueue
+              .filter((val, index) => index !== 0)
+              .concat(await getWords(50))
+          );
+        } else {
+          props.setWordQueue(wordQueue.filter((val, index) => index !== 0));
+        }
+      }
+      await setWord();
       setUserInput("");
       props.setUserInput("");
-      async function setWord() {
-        props.setWord(await getWord());
-      }
-      setWord();
     }
   }
 
