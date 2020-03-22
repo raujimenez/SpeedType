@@ -21,7 +21,11 @@ function App() {
   return (
     <div className="App">
       <WordDisplay word={word} userInput={userInput} />
-      <TypeSpace setUserInput={setUserInput} />
+      <TypeSpace
+        setUserInput={setUserInput}
+        targetWord={word}
+        setWord={setWord}
+      />
     </div>
   );
 }
