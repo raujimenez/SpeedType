@@ -6,10 +6,10 @@ export default function TypeSpace(props) {
   const wordQueue = props.targetWords;
 
   async function handleInputChange(val) {
-    const match = val.localeCompare(wordQueue[0]) === 0;
+    const match = val.toLowerCase().localeCompare(wordQueue[0]) === 0;
     if (!match) {
-      setUserInput(val);
-      props.setUserInput(val);
+      setUserInput(val.toLowerCase());
+      props.setUserInput(val.toLowerCase());
     } else {
       async function setWord() {
         if (wordQueue.length === 25) {
@@ -31,8 +31,7 @@ export default function TypeSpace(props) {
   return (
     <input
       type="text"
-      placeholder="type here"
-      value={userInput}
+      value={userInput.toLowerCase()}
       onChange={e => handleInputChange(e.target.value)}
       style={styles}
       autoFocus={true}
