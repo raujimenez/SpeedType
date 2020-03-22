@@ -40,5 +40,5 @@ export default function WordDisplay(props) {
 
 const styles = {
   display: "inline-block",
-  fontSize: '10vh'
+  fontSize: '10vh',
 };
