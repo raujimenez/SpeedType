@@ -41,7 +41,6 @@ export default function TypeSpace(props) {
 const styles = {
   border: "None",
   borderBottom: "solid 2px #eeeeee",
-  fontSize: "20px",
   padding: "5px",
   outline: "none",
   textAlign: "center",
