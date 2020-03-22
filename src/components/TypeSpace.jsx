@@ -4,7 +4,7 @@ import getWords from "../helpers/getWords.js";
 export default function TypeSpace(props) {
   const [userInput, setUserInput] = useState("");
   const wordQueue = props.targetWords;
-  
+
   async function handleInputChange(val) {
     const match = val.localeCompare(wordQueue[0]) === 0;
     if (!match) {
