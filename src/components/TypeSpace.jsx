@@ -34,6 +34,7 @@ export default function TypeSpace(props) {
       value={userInput}
       onChange={e => handleInputChange(e.target.value)}
       style={styles}
+      autoFocus={true}
     />
   );
 }
