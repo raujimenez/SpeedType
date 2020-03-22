@@ -13,16 +13,16 @@ function App() {
 
   useEffect(() => {
     async function initalizeWord() {
-        setWordQueue(await getWords(50));
+      setWordQueue(await getWords(50));
     }
     initalizeWord();
   }, []);
 
   return (
     <div className="App">
-      <WordDisplay 
-        word={(wordQueue.length > 0) ?  wordQueue[0] : ''} 
-        userInput={userInput} 
+      <WordDisplay
+        word={wordQueue.length > 0 ? wordQueue[0] : ""}
+        userInput={userInput}
       />
       <TypeSpace
         setUserInput={setUserInput}
