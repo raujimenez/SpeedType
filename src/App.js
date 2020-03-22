@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import WordDisplay from "./components/WordDisplay.jsx";
 
@@ -8,6 +8,13 @@ import "./App.css";
 
 function App() {
   const [word, setWord] = useState("");
+
+  useEffect(() => {
+    async function initalizeWord() {
+      setWord(await getWord());
+    }
+    initalizeWord();
+  }, []);
 
   return (
     <div className="App">
