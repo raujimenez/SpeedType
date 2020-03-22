@@ -42,5 +42,9 @@ const styles = {
   border: "None",
   borderBottom: "solid 2px #eeeeee",
   fontSize: "20px",
-  padding: "5px"
+  padding: "5px",
+  outline: "none",
+  textAlign: "center",
+  marginTop: "2vh",
+  fontSize: "3vh"
 };
