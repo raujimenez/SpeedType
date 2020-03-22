@@ -34,7 +34,7 @@ function App() {
 }
 
 const AppStyles = {
-  textAlign: 'center'
-}
+  textAlign: "center"
+};
 
 export default App;
