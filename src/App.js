@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App" style={AppStyles}>
       <WordDisplay
         word={wordQueue.length > 0 ? wordQueue[0] : ""}
         userInput={userInput}
@@ -31,6 +31,10 @@ function App() {
       />
     </div>
   );
+}
+
+const AppStyles = {
+  textAlign: 'center'
 }
 
 export default App;
